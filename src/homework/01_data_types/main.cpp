@@ -10,6 +10,7 @@ using std::cout; using std::cin;
 int main()
 {
 	int num;
+	
 	cout<<"Enter a number: ";
 	cin>>num;
 
