@@ -3,13 +3,13 @@
 #include "decisions.h"
 #include <iostream>
 
-using namespace std;
+using std::cin; using std::cout;
 
 //Write code for function(s) code here
 
-char get_letter_grade_using_if (int grade)
+string get_letter_grade_using_if (int grade)
 {
-    char letter_grade;
+    string letter_grade = "";
 
     if (grade >= 90 && grade <= 100)
     {
@@ -35,9 +35,9 @@ char get_letter_grade_using_if (int grade)
     return letter_grade;
 }
 
-char get_letter_grade_using_switch (int grade)
+string get_letter_grade_using_switch (int grade)
 {
-    char letter_grade;
+    string letter_grade = "";
 
     switch (grade)
     {

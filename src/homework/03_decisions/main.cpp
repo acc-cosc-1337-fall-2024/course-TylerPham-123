@@ -2,13 +2,13 @@
 #include "decisions.h"
 #include <iostream>
 
-using std::cout; using std::cin;
+using std::cin; using std::cout;
 
 int main() 
 {
 	int option;
 	int grade;
-	char letter_grade;
+	string letter_grade;
 
 	cout << "MAIN MENU\n";
 	cout << "1 - Letter grade using if\n";

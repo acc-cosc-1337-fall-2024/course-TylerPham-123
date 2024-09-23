@@ -9,18 +9,18 @@ TEST_CASE("Verify Test Configuration", "verification")
 
 TEST_CASE("Test get letter grade using If")
 {
-	REQUIRE('A' == get_letter_grade_using_if(95));
-	REQUIRE('B' == get_letter_grade_using_if(85));
-	REQUIRE('C' == get_letter_grade_using_if(75));
-	REQUIRE('D' == get_letter_grade_using_if(65));
-	REQUIRE('F' == get_letter_grade_using_if(50));
+	REQUIRE("A" == get_letter_grade_using_if(95));
+	REQUIRE("B" == get_letter_grade_using_if(85));
+	REQUIRE("C" == get_letter_grade_using_if(75));
+	REQUIRE("D" == get_letter_grade_using_if(65));
+	REQUIRE("F" == get_letter_grade_using_if(50));
 }
 
 TEST_CASE("Test get letter grade using Switch")
 {
-	REQUIRE('A' == get_letter_grade_using_switch(95));
-	REQUIRE('B' == get_letter_grade_using_switch(85));
-	REQUIRE('C' == get_letter_grade_using_switch(75));
-	REQUIRE('D' == get_letter_grade_using_switch(65));
-	REQUIRE('F' == get_letter_grade_using_switch(50));
+	REQUIRE("A" == get_letter_grade_using_switch(95));
+	REQUIRE("B" == get_letter_grade_using_switch(85));
+	REQUIRE("C" == get_letter_grade_using_switch(75));
+	REQUIRE("D" == get_letter_grade_using_switch(65));
+	REQUIRE("F" == get_letter_grade_using_switch(50));
 }
