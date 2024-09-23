@@ -24,7 +24,7 @@ int main()
 	cout<<"Enter the tip rate: %";
 	cin>>tip_rate;
 
-	tip_amount = get_tip_amount(meal_amount, tip_rate);
+	tip_amount = get_tip_amount(meal_amount, tip_rate) / 100;
 	 
 	total = tip_amount + tax_amount + meal_amount;
 
