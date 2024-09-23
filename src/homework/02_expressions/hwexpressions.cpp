@@ -16,6 +16,6 @@ double get_sales_tax_amount(double meal_amount) //This function returns a double
 
 double get_tip_amount(double meal_amount, double tip_rate) //This function also returns the same data type like the above function.
 {
-	return (meal_amount * tip_rate)/100; //This function calculates and returns tip_amount.
+	return (meal_amount * tip_rate); //This function calculates and returns tip_amount.
 }
 
