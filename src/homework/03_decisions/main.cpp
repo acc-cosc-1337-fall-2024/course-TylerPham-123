@@ -1,6 +1,5 @@
 //write include statements
 #include "decisions.h"
-#include <iostream>
 
 using std::cin; using std::cout;
 

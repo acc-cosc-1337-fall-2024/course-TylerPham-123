@@ -1,6 +1,7 @@
 //write include required statements
 
 #include<string>
+#include<iostream>
 
 using std::string;
 

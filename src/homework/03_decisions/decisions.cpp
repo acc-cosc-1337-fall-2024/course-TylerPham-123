@@ -1,7 +1,6 @@
 //write include statement for decisions header
 
 #include "decisions.h"
-#include <iostream>
 
 using std::cin; using std::cout;
 
