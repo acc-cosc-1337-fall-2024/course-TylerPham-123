@@ -1,5 +1,5 @@
 //write include statements
-#include "repetition.h"
+#include "repetition.h" //incldue headers
 
 using std::cin; using std::cout;
 //write using statements

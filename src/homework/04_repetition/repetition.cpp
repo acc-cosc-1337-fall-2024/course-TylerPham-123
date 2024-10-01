@@ -1,5 +1,5 @@
 //add include statements
-#include "repetition.h"
+#include "repetition.h" //inlcude headers
 
 //add function(s) code here
 int factorial(int num)
