@@ -1,0 +1,1 @@
+void divide(double arg1, double arg2); //the function header
