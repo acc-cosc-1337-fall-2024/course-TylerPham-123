@@ -5,11 +5,8 @@ using std::cout; using std::cin;
 
 int main() 
 {   
-    string dna;
+    
     auto option = 0;
-
-	cout << "Please enter a DNA string: ";
-    cin >> dna;
 
     do
     {
@@ -22,13 +19,20 @@ int main()
 
         if (option == 1 || option == 2)
         {
+            string dna;
+
+            cout << "\nPlease enter a DNA string: ";
+            cin >> dna;
+
             if (option == 1)
-            {
-                double get_gc_content(const string &dna);
+            {   
+                cout << "\nGC Content: " << get_gc_content(dna) * 100 << "%\n";
+                cout << "\n";
             }
             else
             {
-                string get_dna_complement(string dna);
+                cout << "\nDNA Complement: " << get_dna_complement(dna) << "\n";
+                cout << "\n";
             }
         }
         else if (option == 3)
