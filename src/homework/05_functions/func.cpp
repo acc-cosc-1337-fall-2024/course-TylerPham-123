@@ -19,15 +19,10 @@ double get_gc_content(const string &dna)
 
 string get_reverse_string(string dna)
 {
-    string reversed = dna;
-    int left = 0;
-    int right = reversed.length() - 1;
-
-    while (left < right)
+    string reversed = "";
+    for (int i = dna.length() - 1; i >= 0; --i)
     {
-        std::swap(reversed[left], reversed[right]);
-        left++;
-        right--;
+        reversed += dna[i];
     }
     return reversed;
 }
