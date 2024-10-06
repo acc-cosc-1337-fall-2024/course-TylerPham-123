@@ -20,7 +20,7 @@ double get_gc_content(const string &dna)
 string get_reverse_string(string dna)
 {
     string reversed = "";
-    for (int i = dna.length() - 1; i >= 0; --i)
+    for (int i = dna.length() - 1; i >= 0; --i)//Loop through the input string dna from the end to the beginning.
     {
         reversed += dna[i];
     }
