@@ -7,7 +7,7 @@ double get_gc_content(const string &dna)
 {  
     auto gc_count = 0;
 
-    for (char base : dna)
+    for (char base : dna) //Iterates over each character in the dna string.
     {
         if (base == 'C' || base == 'G')
         {
@@ -31,7 +31,7 @@ string get_dna_complement(string dna)
 {
     string complement = get_reverse_string(dna);
     
-    for (char &base: complement)
+    for (char &base: complement) //Modify the original characters in the complement string.
     {
         switch (base)
         {
