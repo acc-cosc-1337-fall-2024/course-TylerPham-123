@@ -6,9 +6,28 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test TicTacToe::game_over()") //A good quality code needs TEST_CASE for each function.
+TEST_CASE("Test if the board is full")
+//A good quality code needs TEST_CASE for each function.
 {
 	TicTacToe game; //What does this line do?
+
+	game.mark_board(1);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(2);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(3);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(4);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(5);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(7);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(6);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(9);
+	REQUIRE(game.game_over() == false);
+	game.mark_board(8);
 
 	REQUIRE(game.game_over() == true); //Why does it need to be game.game_over() ?
 }

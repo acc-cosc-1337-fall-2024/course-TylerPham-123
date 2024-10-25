@@ -1,22 +1,34 @@
 //cpp
 #include "tic_tac_toe.h"
+#include <iostream>
+
+using std::cout;
 
 //public functions of class TicTacToe
 bool TicTacToe::game_over() //What does this function do?
 //Why does it need to be TicTacToe::game_over() ? To access the class, right?
 {
-    return false;
+    return check_board_full();
 }
 
-void TicTacToe::star_game(std::string first_player)
+void TicTacToe::start_game(std::string first_player)
 {
     player = first_player;
+    clear_board();
 }
 
-	
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
+    set_next_player();
+}
+
+void TicTacToe::display_board() const
+{
+    for (long unsigned int i=0; i < pegs.size(); i += 3)
+    {
+        cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
+    }
 }
 //private functions of class TicTacToe
 void TicTacToe::clear_board()
@@ -25,4 +37,29 @@ void TicTacToe::clear_board()
     {
         peg = " ";
     }
+}
+
+void TicTacToe::set_next_player()
+{
+    if (player == "X")
+    {
+        player = "O";
+    }
+    else
+    {
+        player = "X";
+    }
+}
+
+bool TicTacToe::check_board_full()
+{
+    for (long unsigned int i = 0; i < pegs.size(); i++)
+    {
+        if (pegs[i] == " ")
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
