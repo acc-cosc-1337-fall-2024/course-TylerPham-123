@@ -19,8 +19,14 @@ int main()
 
 	do
 	{
-		cout << "Enter first player - ";
+		cout << "Enter first player (X/O) - ";
 		cin >> first_player;
+
+		while(first_player != "O" && first_player != "X")
+		{
+			cout << "Only enter 'X' or 'O' please - ";
+			cin >> first_player;
+		}
 
 		game.start_game(first_player);
 
