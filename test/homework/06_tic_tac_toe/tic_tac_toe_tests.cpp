@@ -31,3 +31,11 @@ TEST_CASE("Test if the board is full")
 
 	REQUIRE(game.game_over() == true); //Why does it need to be game.game_over() ?
 }
+
+TEST_CASE("Test first player set to 'X.'")
+{
+	TicTacToe first_player;
+
+	first_player.start_game("X");
+	REQUIRE(first_player.get_player() == "X");
+}

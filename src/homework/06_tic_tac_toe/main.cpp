@@ -1,9 +1,9 @@
 //Note from Thu Oct 24 - This program needs to be fixed.
 //First thing - When you enter something different than 'X' or 'O' for first_player,
-//it will display that "something."
+//it will display that "something." - Has fixed.
 
 //Second thing - The code allows you to rewrite the position that has already been written.
-//This is against the rule of the TicTacToe.
+//This is against the rule of the TicTacToe. - Still on progress.
 #include "tic_tac_toe.h"
 
 #include <iostream>
