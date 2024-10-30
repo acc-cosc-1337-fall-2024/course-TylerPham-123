@@ -6,7 +6,6 @@ using std::cout;
 
 //public functions of class TicTacToe
 bool TicTacToe::game_over()
-//Why does it need to be TicTacToe::game_over() ? To access the class, right? Yes.
 {
     if (check_column_win() == true || check_row_win() == true || check_diagonal_win() == true)
     {   
