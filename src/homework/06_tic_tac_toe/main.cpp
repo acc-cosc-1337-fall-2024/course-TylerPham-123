@@ -1,49 +1,74 @@
-//Note from Thu Oct 24 - This program needs to be fixed.
-//First thing - When you enter something different than 'X' or 'O' for first_player,
-//it will display that "something." - Has fixed.
-
-//Second thing - The code allows you to rewrite the position that has already been written.
-//This is against the rule of the TicTacToe. - Still on progress.
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-using std::cout; using std::cin;
+int main() {
+    TicTacToe game;
+    TicTacToeManager games;
+    std::string first_player;
+    int x, o, t;
 
-int main() 
-{
-	TicTacToe game;
-	std::string first_player;
-	char user_choice = 'y';
+    while (true) {
+        std::cout << "Enter the first player (X or O): ";
+        std::cin >> first_player;
 
-	do
-	{
-		cout << "Enter first player (X/O) - ";
-		cin >> first_player;
+        while (first_player != "X" && first_player != "O")
+        {
+            std::cout << "Invalid input. Please enter 'X' or 'O' for the game to start." << std::endl;
+            std::cout << "Enter the first player (X or O): ";
+            std::cin >> first_player;
+        }
 
-		while(first_player != "O" && first_player != "X")
-		{
-			cout << "Only enter 'X' or 'O' please - ";
-			cin >> first_player;
-		}
+        game.start_game(first_player);
 
-		game.start_game(first_player);
+        while (!game.game_over())
+        {
+            game.display_board();
+            int position;
+            std::cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+            std::cin >> position;
 
-		int position;
+            while (position < 1 || position > 9)
+            {
+                std::cout << "Invalid position. Please enter a number between 1 and 9." << std::endl;
+                std::cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+                std::cin >> position;
+            }
 
-		while(!game.game_over())
-		{
-			cout << "Enter a position - ";
-			cin >> position;
-			game.mark_board(position);
-			game.display_board();
-		}
+            game.mark_board(position);
+        }
 
-		cout << "Play again? (y/n) - ";
-		cin >> user_choice;
-	}while(tolower(user_choice) == 'y');
-	
+        game.display_board();
 
-	return 0;
+        if (game.get_winner() == "C")
+            std::cout << "It is a tie losers." << std::endl;
+        else
+            std::cout << "The winner is: " << game.get_winner() << std::endl;
+
+        games.save_game(game);
+
+        games.get_winner_total(x, o, t);
+
+        std::cout << "X's wins" << std::setw(9) << "- " << x << std::endl;
+        std::cout << "O's wins" << std::setw(9) << "- " << o << std::endl;
+        std::cout << "Number of tie" << std::setw(4) << "- " << t << std::endl;
+        std::string play_again;
+        std::cout << "Do you guys wanna play again? (Y/N): ";
+        std::cin >> play_again;
+
+        while (play_again != "Y" && play_again != "N")
+        {
+            std::cout << "Only 'Y' or 'N'. Please try again." << std::endl;
+            std::cout << "Do you want to play again? (Y/N): ";
+            std::cin >> play_again;
+        }
+
+        if (play_again == "N")
+            break;
+    }
+
+    return 0;
 }
