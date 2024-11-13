@@ -7,7 +7,7 @@
 class TicTacToe
 {
 public:
-//Public members
+//Public functions
     bool game_over();
     void start_game(std::string first_player);
     void mark_board(int position);
