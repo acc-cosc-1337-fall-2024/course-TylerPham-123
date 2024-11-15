@@ -11,7 +11,6 @@ class TicTacToeManager
 public:
     void save_game(unique_ptr<TicTacToe>& b);
     void get_winner_total(int& o, int& w, int& t) {o = x_win; w = o_win; t = ties;};
-    void dislay_all_games();
 
 private:
     std::vector <unique_ptr<TicTacToe>> games;

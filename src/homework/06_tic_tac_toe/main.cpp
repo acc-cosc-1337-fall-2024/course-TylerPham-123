@@ -5,21 +5,43 @@
 #include <string>
 #include <iomanip>
 
+using std::cout; using std::cin; using std::endl;
+using std::make_unique;
+
 int main() {
-    TicTacToe game;
+    TicTacToe game = make_unique<TicTacToe>();
     TicTacToeManager games;
     std::string first_player;
-    int x, o, t;
+    int x, o, t, player_option;
 
-    while (true) {
-        std::cout << "Enter the first player (X or O): ";
-        std::cin >> first_player;
+
+    while (true)
+    {
+        do
+        {
+            cout << "MENU" << endl;
+            cout << "1 - 3*3 tic tac toe game" << endl;
+            cout << "2 - 4*4 tic tac toe game" << endl;
+            cout << "Enter your option - ";
+            cin >> player_option;
+
+            if (player_option != 1 && player_option != 2)
+            {
+                cout << "Your number is out of range." << endl;
+                cout << "Please try again." << endl;
+                cout << "Enter your option - ";
+                cin >> player_option;
+            }
+        } while (player_option != 1 && player_option != 2);
+        
+        cout << "Enter the first player (X or O): ";
+        cin >> first_player;
 
         while (first_player != "X" && first_player != "O")
         {
-            std::cout << "Invalid input. Please enter 'X' or 'O' for the game to start." << std::endl;
-            std::cout << "Enter the first player (X or O): ";
-            std::cin >> first_player;
+            cout << "Invalid input. Please enter 'X' or 'O' for the game to start." << endl;
+            cout << "Enter the first player (X or O): ";
+            cin >> first_player;
         }
 
         game.start_game(first_player);
@@ -28,14 +50,14 @@ int main() {
         {
             game.display_board();
             int position;
-            std::cout << game.get_player() << "'s turn. Enter a position (1-9): ";
-            std::cin >> position;
+            cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+            cin >> position;
 
             while (position < 1 || position > 9)
             {
-                std::cout << "Invalid position. Please enter a number between 1 and 9." << std::endl;
-                std::cout << game.get_player() << "'s turn. Enter a position (1-9): ";
-                std::cin >> position;
+                cout << "Invalid position. Please enter a number between 1 and 9." << endl;
+                cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+                cin >> position;
             }
 
             game.mark_board(position);
@@ -44,26 +66,26 @@ int main() {
         game.display_board();
 
         if (game.get_winner() == "C")
-            std::cout << "It is a tie losers." << std::endl;
+            cout << "It is a tie losers." << endl;
         else
-            std::cout << "The winner is: " << game.get_winner() << std::endl;
+            cout << "The winner is: " << game.get_winner() << endl;
 
         games.save_game(game);
 
         games.get_winner_total(x, o, t);
 
-        std::cout << "X's wins" << std::setw(9) << "- " << x << std::endl;
-        std::cout << "O's wins" << std::setw(9) << "- " << o << std::endl;
-        std::cout << "Number of tie" << std::setw(4) << "- " << t << std::endl;
+        cout << "X's wins" << std::setw(9) << "- " << x << endl;
+        cout << "O's wins" << std::setw(9) << "- " << o << endl;
+        cout << "Number of tie" << std::setw(4) << "- " << t << endl;
         std::string play_again;
-        std::cout << "Do you guys wanna play again? (Y/N): ";
-        std::cin >> play_again;
+        cout << "Do you guys wanna play again? (Y/N): ";
+        cin >> play_again;
 
         while (play_again != "Y" && play_again != "N")
         {
-            std::cout << "Only 'Y' or 'N'. Please try again." << std::endl;
-            std::cout << "Do you want to play again? (Y/N): ";
-            std::cin >> play_again;
+            cout << "Only 'Y' or 'N'. Please try again." << endl;
+            cout << "Do you want to play again? (Y/N): ";
+            cin >> play_again;
         }
 
         if (play_again == "N")

@@ -7,13 +7,14 @@ void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
     update_winner_count(b -> get_winner());
 
     games.push_back(move(b));
-}
 
-/*void TicTacToeManager::dislay_all_games()
-{
-    for (const auto& game : games) {game -> display();}
+    for (const auto& game : games)
+    {
+        const auto& game_ref = *game;
+        // Display the game
+        game_ref.display();
+    }
 }
-*/
 
 //private functions of class TicTacToeManager
 void TicTacToeManager::update_winner_count(std::string winner)
