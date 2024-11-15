@@ -10,9 +10,28 @@ Win by column if and return true if (each column index)
 else
 false
 */
-
-
-
+bool TicTacToe4::check_column_win() 
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (pegs[i] == pegs[i + 4] && pegs[i + 4] == pegs[i + 8] && pegs[i + 8] == pegs[i + 12] && pegs[i] != " ")
+        {
+            return true;
+        }
+        else //Check if board is full
+        {
+            for (long unsigned int i = 0; i < pegs.size(); i++)
+            {
+                if (pegs[i] == " ")
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    return false;
+}
 
 /*
 class function check_row_win
@@ -22,8 +41,28 @@ Win by row if
 8, 9, 10, 11 are equal 
 12,13,14, 15 are equal
 */
-
-
+bool TicTacToe4::check_row_win()
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (pegs[i * 4] == pegs[i * 4 + 1] && pegs[i * 4 + 1] == pegs[i * 4 + 2] && pegs[i * 4 + 2] == pegs[i * 4 + 3] && pegs[i * 3] != " ")
+        {
+            return true;
+        }
+        else //Check if board is full
+        {
+            for (long unsigned int i = 0; i < pegs.size(); i++)
+            {
+                if (pegs[i] == " ")
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    return false;
+}
 
 /*
 class function check_diagonal_win
@@ -34,3 +73,23 @@ Win diagonally
 12,13,14, 15
 
 */
+bool TicTacToe4::check_diagonal_win() 
+{
+    if ((pegs[0] == pegs[5] && pegs[5] == pegs[10] && pegs[10] == pegs[15] && pegs[0] != " ") ||
+           (pegs[3] == pegs[6] && pegs[6] == pegs[9] && pegs[9] == pegs[12] && pegs[2] != " "))
+    {
+        return true;
+    }
+    else //Check if board is full
+    {
+            for (long unsigned int i = 0; i < pegs.size(); i++)
+            {
+                if (pegs[i] == " ")
+                {
+                    return false;
+                }
+            }
+            return true;
+    }
+    return false;
+}

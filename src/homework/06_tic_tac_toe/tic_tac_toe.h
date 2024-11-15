@@ -8,6 +8,8 @@ class TicTacToe
 {
 public:
 //Public functions
+    TicTacToe(){}
+    TicTacToe(int size) : pegs(size * size, " "){} //Constructor 
     bool game_over();
     void start_game(std::string first_player);
     void mark_board(int position);
@@ -18,7 +20,6 @@ public:
 private:
 //Private members
     std::string player;
-    std::vector<std::string> pegs{9, " "};
     std::string winner;
 
 //Private functions
@@ -29,6 +30,15 @@ private:
     bool check_row_win();
     bool check_diagonal_win();
     void set_winner();
+
+protected:
+//Protected variables
+    std::vector<std::string> pegs;
+
+//Protected virtual functions
+    virtual bool check_column_win();
+    virtual bool check_row_win();
+    virtual bool check_diagonal_win();
 };
 
 #endif
