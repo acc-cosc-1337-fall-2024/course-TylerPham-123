@@ -9,7 +9,7 @@ void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
     games.push_back(move(b));
 }
 
-/*void TicTacToeManager::display_games() const {
+void TicTacToeManager::display_games() const {
     for (const auto& game : games) {
         // Determine the game type
         std::string game_type = (game->pegs.size() == 9) ? "TicTacToe3" : "TicTacToe4";
@@ -29,7 +29,7 @@ void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
         // Display the winner
         std::cout << "Winner: " << game->get_winner() << "\n\n";
     }
-}*/
+}
 
 //private functions of class TicTacToeManager
 void TicTacToeManager::update_winner_count(std::string winner)

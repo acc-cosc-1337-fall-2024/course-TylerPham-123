@@ -8,7 +8,6 @@ class TicTacToe
 {
 public:
 //Public functions
-    TicTacToe(){}
     TicTacToe(int size) : pegs(size * size, " "){} //Constructor 
     bool game_over();
     void start_game(std::string first_player);

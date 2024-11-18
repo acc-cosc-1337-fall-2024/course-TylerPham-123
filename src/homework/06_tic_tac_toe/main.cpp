@@ -6,10 +6,9 @@
 #include <iomanip>
 
 using std::cout; using std::cin; using std::endl;
-using std::make_unique;
 
 int main() {
-    TicTacToe game = make_unique<TicTacToe>();
+    std::unique_ptr<TicTacToe> game;
     TicTacToeManager games;
     std::string first_player;
     int x, o, t, player_option;
