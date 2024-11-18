@@ -43,31 +43,31 @@ int main() {
             cin >> first_player;
         }
 
-        game.start_game(first_player);
+        game->start_game(first_player);
 
-        while (!game.game_over())
+        while (!game->game_over())
         {
-            game.display_board();
+            game->display_board();
             int position;
-            cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+            cout << game->get_player() << "'s turn. Enter a position (1-9): ";
             cin >> position;
 
             while (position < 1 || position > 9)
             {
                 cout << "Invalid position. Please enter a number between 1 and 9." << endl;
-                cout << game.get_player() << "'s turn. Enter a position (1-9): ";
+                cout << game->get_player() << "'s turn. Enter a position (1-9): ";
                 cin >> position;
             }
 
-            game.mark_board(position);
+            game->mark_board(position);
         }
 
-        game.display_board();
+        game->display_board();
 
-        if (game.get_winner() == "C")
+        if (game->get_winner() == "C")
             cout << "It is a tie losers." << endl;
         else
-            cout << "The winner is: " << game.get_winner() << endl;
+            cout << "The winner is: " << game->get_winner() << endl;
 
         games.save_game(game);
 

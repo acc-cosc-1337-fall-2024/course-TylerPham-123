@@ -17,10 +17,11 @@ class TicTacToeManager
 
 //Private functions
     void update_winner_count(std::string winner);
+
 public:
 
 //Public functions
-    void save_game(unique_ptr<TicTacToe>& b);
+    void save_game(unique_ptr<TicTacToe>& game);
     void get_winner_total(int& o, int& w, int& t) {o = x_win; w = o_win; t = ties;};
 };
 

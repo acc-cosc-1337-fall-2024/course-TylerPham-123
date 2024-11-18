@@ -6,17 +6,6 @@
 
 class TicTacToe
 {
-public:
-//Public functions
-    TicTacToe(int size) : pegs(size * size, " "){} //Constructor 
-    bool game_over();
-    void start_game(std::string first_player);
-    void mark_board(int position);
-    std::string get_player() const{return player;}
-    void display_board() const;
-    std::string get_winner() {return winner;}
-
-private:
 //Private members
     std::string player;
     std::string winner;
@@ -29,6 +18,16 @@ private:
     bool check_row_win();
     bool check_diagonal_win();
     void set_winner();
+
+public:
+//Public functions
+    TicTacToe(int size) : pegs(size * size, " "){} //Constructor 
+    bool game_over();
+    void start_game(std::string first_player);
+    void mark_board(int position);
+    std::string get_player() const{return player;}
+    void display_board() const;
+    std::string get_winner() {return winner;}
 
 protected:
 //Protected variables
