@@ -2,7 +2,8 @@
 #include "catch.hpp"
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
-
+#include "tic_tac_toe_3.h"
+#include <memory>
 using std::string;
 //A good quality code needs TEST_CASE for each function.
 
@@ -12,7 +13,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test first player set to X")
 {
-    TicTacToe game;
+    TicTacToe3 game;
 
     game.start_game("X");
     REQUIRE(game.get_player() == "X");
@@ -20,7 +21,7 @@ TEST_CASE("Test first player set to X")
 
 TEST_CASE("Test first player set to O")
 {
-    TicTacToe game;
+    TicTacToe3 game;
 
     game.start_game("O");
     REQUIRE(game.get_player() == "O");
@@ -28,7 +29,7 @@ TEST_CASE("Test first player set to O")
 
 TEST_CASE("Test game over if 9 slots are selected.")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
 
@@ -56,7 +57,7 @@ TEST_CASE("Test game over if 9 slots are selected.")
 
 TEST_CASE("Test win by first column")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -76,7 +77,7 @@ TEST_CASE("Test win by first column")
 
 TEST_CASE("Test win by second column")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -96,7 +97,7 @@ TEST_CASE("Test win by second column")
 
 TEST_CASE("Test win by third column")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -116,7 +117,7 @@ TEST_CASE("Test win by third column")
 
 TEST_CASE("Test win by first row")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -136,7 +137,7 @@ TEST_CASE("Test win by first row")
 
 TEST_CASE("Test win by second row")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -156,7 +157,7 @@ TEST_CASE("Test win by second row")
 
 TEST_CASE("Test win by third row")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -176,7 +177,7 @@ TEST_CASE("Test win by third row")
 
 TEST_CASE("Test win diagonally from top left")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -196,7 +197,7 @@ TEST_CASE("Test win diagonally from top left")
 
 TEST_CASE("Test win diagonally from bottom left")
 {
-    TicTacToe game;
+    TicTacToe3 game;
     
     game.start_game("X");
     
@@ -220,7 +221,7 @@ TEST_CASE("Test TicTacToe manager get winner total function")
     //Simulate playing 3 or more games with X, O, and C as winners
     //Verify that that x_win, o_win, and ties tally correctly
 
-    TicTacToe game;
+    TicTacToe3 game;
     TicTacToeManager games;
     int x, o, t;
     
@@ -240,7 +241,7 @@ TEST_CASE("Test TicTacToe manager get winner total function")
 
     REQUIRE(game.get_winner() == "X");
 
-    games.save_game(game);
+    games.save_game(std::make_unique<game>);
 
     //Game 2
     game.start_game("X");
@@ -266,7 +267,7 @@ TEST_CASE("Test TicTacToe manager get winner total function")
 
     REQUIRE(game.get_winner() == "C");
     
-    games.save_game(game);
+    games.save_game(std::make_unique<game>);
 
     //Game 3
     game.start_game("O");
@@ -285,7 +286,7 @@ TEST_CASE("Test TicTacToe manager get winner total function")
 
     REQUIRE(game.get_winner() == "O");
     
-    games.save_game(game);
+    games.save_game(std::make_unique<game>);
     
     games.get_winner_total(x, o, t);
 
