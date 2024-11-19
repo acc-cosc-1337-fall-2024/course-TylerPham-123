@@ -293,8 +293,3 @@ TEST_CASE("Test TicTacToe manager get winner total function")
     REQUIRE(o == 1);
     REQUIRE(t == 1);
 }
-
-TEST_CASE("Test display_all_games()")
-{
-
-}
