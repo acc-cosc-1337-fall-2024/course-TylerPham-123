@@ -7,7 +7,17 @@ void TicTacToeManager::save_game(unique_ptr<TicTacToe>& game)
 {
     update_winner_count(game -> get_winner());
 
+    game->display_board(game);
+
     games.push_back(move(game));
+}
+
+void TicTacToeManager::display_all_games()
+{
+    for (const auto &game:games)
+    {
+        *game->display_board();
+    }
 }
 
 //private functions of class TicTacToeManager
