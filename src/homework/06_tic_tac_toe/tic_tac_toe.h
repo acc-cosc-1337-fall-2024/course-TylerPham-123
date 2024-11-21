@@ -14,9 +14,6 @@ class TicTacToe
     void clear_board();
     void set_next_player();
     bool check_board_full();
-    bool check_column_win();
-    bool check_row_win();
-    bool check_diagonal_win();
     void set_winner();
 
 public:

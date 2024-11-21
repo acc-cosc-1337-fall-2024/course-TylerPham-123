@@ -37,11 +37,21 @@ void TicTacToe::mark_board(int position)
     set_next_player();
 }
 
-void TicTacToe::display_board() const
+void TicTacToe::display_board() const // I have to modify the display_board to make it works with the TicTacToe3 and TicTacToe4.
 {
-    for (long unsigned int i=0; i < pegs.size(); i += 3)
+    if (pegs.size() == 9)
     {
-        cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
+        for (long unsigned int i=0; i < pegs.size(); i += 3)
+        {
+            cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
+        }
+    }
+    else if (pegs.size() == 16)
+    {
+        for (long unsigned int i=0; i < pegs.size(); i += 4)
+        {
+            cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "|" << pegs[i + 3] << "\n";
+        }
     }
 }
 
@@ -78,31 +88,15 @@ void TicTacToe::set_winner()
 
 bool TicTacToe::check_column_win() 
 {
-    for (int i = 0; i < 3; ++i)
-    {
-        if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] && pegs[i] != " ")
-        {
-            return true;
-        }
-    }
     return false;
-
 }
 
 bool TicTacToe::check_diagonal_win() 
 {
-    return (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ") ||
-           (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ");
+    return false;
 }
 
 bool TicTacToe::check_row_win()
 {
-    for (int i = 0; i < 3; ++i)
-    {
-        if (pegs[i * 3] == pegs[i * 3 + 1] && pegs[i * 3 + 1] == pegs[i * 3 + 2] && pegs[i * 3] != " ")
-        {
-            return true;
-        }
-    }
     return false;
 }

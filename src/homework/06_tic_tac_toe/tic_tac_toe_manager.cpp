@@ -15,6 +15,7 @@ void TicTacToeManager::display_all_games()
     for (const auto &game:games)
     {
         game->display_board();
+        std::cout << "The winner is: " << game->get_winner() << std::endl; //Print the winner underneath the board displayed
     }
 }
 

@@ -11,6 +11,14 @@ false
 */
 bool TicTacToe3::check_column_win() 
 {
+    for (int i = 0; i < 3; ++i)
+    {
+        if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] && pegs[i] != " ")
+        {
+            return true;
+        }
+    }
+
     return false;
 }
 
@@ -23,6 +31,13 @@ Win by row if
 */
 bool TicTacToe3::check_row_win()
 {
+    for (int i = 0; i < 3; ++i)
+    {
+        if (pegs[i * 3] == pegs[i * 3 + 1] && pegs[i * 3 + 1] == pegs[i * 3 + 2] && pegs[i * 3] != " ")
+        {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -36,5 +51,6 @@ Win diagonally
 */
 bool TicTacToe3::check_diagonal_win() 
 {
-    return false;
+    return (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ") ||
+           (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ");
 }
